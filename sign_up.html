@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "/css/style_2.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class = "sign_up_container">
+            <h1>Đăng kí</h1>
+            <form>
+                <h5>Username</h5>
+                <input type="text" id="username" name="username" placeholder="username" />
+                <h5>Email</h5>
+                <input type = "email" class = "my_email" id = "email" required placeholder = "E-mail">
+                <h5>Password</h5>
+                <input type = "password" class ="my_pass" id = "password" required placeholder = "Password">
+                <input type="submit" id='signUp' name="signup_submit" value="Đăng kí" />
+            </form>
+            <a href = "sign_in.html" class = "login_registerBtn">Đã có tài khoản </a>
+        </div>
+       
+    </div> 
+</body>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
+    import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyA82z3fqwq3I8Jah21c4hpthPP7hQqYDdQ",
+      authDomain: "ttcs-26905.firebaseapp.com",
+      databaseURL: "https://ttcs-26905-default-rtdb.firebaseio.com",
+      projectId: "ttcs-26905",
+      storageBucket: "ttcs-26905.appspot.com",
+      messagingSenderId: "601737665348",
+      appId: "1:601737665348:web:c1df3227a3fe4c1e939511"
+    };
+    
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const auth = getAuth();
+    
+
+    signUp.addEventListener('click', (e) => {
+        e.preventDefault();
+        var email = document.getElementById('email').value ;
+        var password = document.getElementById('password').value ;
+        var username = document.getElementById('username').value ;
+        createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+    
+        const user = userCredential.user;
+        set(ref(database,'user/' + user.uid),{
+            username: username,
+            email: email,
+            password: password,
+        })
+        alert('User created');
+        window.location.replace("sign_in.html");
+        // ...
+        })
+        .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+
+        alert(errorMessage);
+         // ..
+        });
+    })
+  </script>
+</html>

@@ -741,7 +741,25 @@ bout_part .about_text p {
     border-radius: 50%;
   }
 }
-
+.footer-box{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-right:55px;
+}
+.footer-box .btn-add{
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background-color:rgb(227, 96, 52);
+  text-align: center;
+  cursor: pointer;
+}
+.footer-box .btn-add:hover{
+  background-color: #A4CEC0;
+  color:orangered;
+  transition: 1s;
+}
 .media{
   display:block;
 }

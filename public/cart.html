@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="icon" href="img/favicon.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+    <script src="https://kit.fontawesome.com/cf9a948e18.js" crossorigin="anonymous"></script>
+    <link rel = "stylesheet" href = "css/pro.css">
+    <link rel = "stylesheet" href ="css/cart.css">
+</head>
+<body onload = "loaddatacart()">
+  <section class = "product-header">
+    <div class="container">
+      <nav class="navbar">
+          <div class="navbar__logo" >
+            <img src = "img/logo-mup.png" id = "btn-img" >
+            <div class = "nav-header">
+              <ul class = "uls">
+                <li><a href = "index.html">Home</a></li>
+                <li><a href = "#">About</a></li>
+                <li><a href = "#">Blog</a></li>
+                <li><a href = "#">Cart</a></li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="menu_btn">
+            <button id = "btn_login">Login</button>
+          </div>
+
+          <div class ="icon-cart">
+            <i class = "fa fa-shopping-cart" style = "font-size:24px"></i>Giỏ hàng: <span id = "slsp"></span>
+          </div>
+          <!-- link  -->
+      
+      </nav>
+  </div>
+    </div>
+  </section>
+  <section class = "row">
+    <div class="container">
+      <div class = "cart_left">
+     
+        <table>
+          <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quality</th>
+            <th>Total</th>
+            <th>Remove</th>
+          </tr>
+          <tbody id = "info_cart">
+           
+          </tbody>
+          
+        </table>
+        <br>
+        <button onclick = "delcart()">Xóa đơn hàng</button>
+      </div>
+      <div class ="cart_right">
+        <h2 id = "tongdonhang"></h2>
+      </div>
+    </div>
+  </section>
+
+  <script></script>
+</body>
+<!-- bootstrap js -->
+<script src="js/bootstrap.min.js"></script>
+<script src = "js/product.js"></script>
+</html>

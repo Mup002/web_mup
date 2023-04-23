@@ -1,0 +1,25 @@
+{
+  "name": "webttcs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mup002/web_mup.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mup002/web_mup/issues"
+  },
+  "homepage": "https://github.com/Mup002/web_mup#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "express.js": "^1.0.0",
+    "firebase-admin": "^11.7.0",
+    "nodemon": "^2.0.22"
+  }
+}

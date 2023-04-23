@@ -1,0 +1,58 @@
+*{
+   margin:0px;
+   padding:0px;
+   box-sizing: border-box;
+}
+.row{
+    padding:5px 100px 10px 50px;
+}
+
+.last-td{
+    width: 70px;
+    text-align: center;
+    justify-content: center;
+}
+h2{
+    margin-top:10px;
+    font-size: 20px;
+    background: #ff6426;
+    height: 50px;
+    width: 100%;
+    border-radius: 8px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.icon-cart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#ff6426;
+    width: 15%;
+    height: 50px;
+    align-items: center;
+    border-radius: 50px;
+    color:aliceblue;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+}
+th, td {
+    text-align: left;
+    padding: 8px;
+    border: 1px solid black;
+    font-weight: bold;
+    
+} 
+th:first-child, td:first-child {
+    width: 40%;
+}
+
+.btn-table{
+    width: 5px important!;
+    height: 5px important!;
+    display:flex;
+    align-items: center;
+}

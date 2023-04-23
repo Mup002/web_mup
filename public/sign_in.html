@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "css/style_2.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class = "sign_in_container">
+            <h1>Đăng nhập</h1>
+            <form>
+               <h5>Email</h5>
+               <input type = "email" class = "my_email" id = "email" required >
+               <h5>Password</h5>
+               <input type = "password" class ="my_pass" id = "password" required>
+               <input type="submit" id='login' name="login" value="Đăng nhập" />
+
+        </form>
+        <a href = "sign_up.html" class = "login_registerBtn">Tạo tài khoản mới</a>
+        </div>
+        
+    </div> 
+</body>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
+    import { getDatabase,  ref, update } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js";
+    import { getAuth,  signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyA82z3fqwq3I8Jah21c4hpthPP7hQqYDdQ",
+      authDomain: "ttcs-26905.firebaseapp.com",
+      databaseURL: "https://ttcs-26905-default-rtdb.firebaseio.com",
+      projectId: "ttcs-26905",
+      storageBucket: "ttcs-26905.appspot.com",
+      messagingSenderId: "601737665348",
+      appId: "1:601737665348:web:c1df3227a3fe4c1e939511"
+    };
+    
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const auth = getAuth();
+    
+
+    login.addEventListener('click',(e)=>{
+        e.preventDefault();
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+     
+           signInWithEmailAndPassword(auth, email, password)
+           .then((userCredential) => {
+             const user = userCredential.user;
+             localStorage.setItem('user', JSON.stringify(user));
+             const dt = new Date();
+              update(ref(database, 'users/' + user.uid),{
+               last_login: dt,
+             })
+     
+              alert('User logged in!');
+              document.cookie = `loggedIn=true; email=${email}`;
+              window.location.replace("index.html");
+             // ...
+           })
+           .catch((error) => {
+             const errorCode = error.code;
+             const errorMessage = error.message;
+     
+             alert(errorMessage);
+       });
+     
+      });
+  </script>
+</html>
